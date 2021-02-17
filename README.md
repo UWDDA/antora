@@ -36,34 +36,32 @@ For a description of this module, visit (URL https://www.digitalocean.com/commun
 INSTALLATION
 ------------
 
-# Follow these steps below to install Node.js.
+* Follow these steps below to install Node.js.
 
 $ sudo apt update
 $ sudo apt install nodejs
 $ sudo apt install npm
 
-# Download NVM Install Script
+* Download NVM Install Script
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ​
-# Set NVM Environment Variables
+* Set NVM Environment Variables
 
 $ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 ​
-# Install Node LTS
+* Install Node LTS
 $ nvm install --lts
 
-# Once installed, run the command below to confirm that Node is installed. 
-# There will be a version number displayed once the command is complete. 
+* Once installed, run the command below to confirm that Node is installed. There will be a version number displayed once the command is complete. 
 
 $ nodejs -v 
 
-# After this, move on with steps to install Antora along with the site generator package.
+* After this, move on with steps to install Antora along with the site generator package.
 
 $ npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
 ​
-# Run this command to get the version and latest patching number.
-# There will be a version number displayed once the command is complete. 
+* Run this command to get the version and latest patching number.There will be a version number displayed once the command is complete. 
 $ antora -v
 
 
@@ -71,7 +69,7 @@ $ antora -v
 CONFIGURATION
 -------------
 
-There are no specific configurations required for installing Antora. 
+* There are no specific configurations required for installing Antora. 
 
 
 MAINTAINERS
