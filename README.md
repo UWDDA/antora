@@ -67,6 +67,7 @@ $ nodejs -v
 $ npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
 ​
 * Run this command to get the version and latest patching number.There will be a version number displayed once the command is complete. 
+* 
 $ antora -v
 
 
