@@ -56,6 +56,7 @@ $ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 ​
 * Install Node LTS
+
 $ nvm install --lts
 
 * Once installed, run the command below to confirm that Node is installed. There will be a version number displayed once the command is complete. 
