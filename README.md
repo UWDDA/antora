@@ -4,8 +4,7 @@ Installing Antora
 
 This is a baseline setup for the antora package
 
-<img src="./img/antora2.jpg" width="100" height="100"/>
-<img src="./img/ubuntu.jpg" width="175" height="100"/>
+<img src="./img/antora2.jpg" width="100" height="100"/> <img src="./img/ubuntu.jpg" width="175" height="100"/>
 
 CONTENTS OF THIS FILE
 ---------------------
@@ -30,6 +29,7 @@ For more information on the topic specifically, you may visit
 DEV DEPENDENCIES
 --------------
 * Node.js v8.10.0
+
 
 REQUIREMENTS
 ------------
