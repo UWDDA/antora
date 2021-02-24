@@ -47,6 +47,7 @@ $ sudo apt install nodejs
 $ sudo apt install npm
 
 * Download NVM Install Script
+
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ​
 * Set NVM Environment Variables
