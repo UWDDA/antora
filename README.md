@@ -4,7 +4,7 @@ Installing Antora
 
 This is a baseline setup for the antora package
 
-![antora logo](./img/antora2.jpg) {width=40px height=400px})
+![antora logo](./img/antora2.jpg= 250x250)
 ![ubuntu logo](./img/ubuntu.jpg)
 
 
