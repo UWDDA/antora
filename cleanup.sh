@@ -1,11 +1,13 @@
+#remove directory
+
 cd ~
 
 rm -rf antora 
 
-rm -rf /var/www/html/*
+sudo rm -rf /var/www/html/*
 
 #@todo -uninstallation of dependencies 
-#nodejs, npm, nvm, antora cli, antora site generator, http sesrver, apache 
+#nodejs, npm, nvm, antora cli, antora site generator, http server, apache2 
 
 
 sudo apt remove nodejs
