@@ -1,4 +1,4 @@
-name: y website
+name: my website
 title: My Website 
 version:
 start_page: get-started:overview.adoc
