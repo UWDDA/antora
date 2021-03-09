@@ -2,11 +2,11 @@ site:
   title: Antora Demo Site
   url: http://54.158.188.118
   robots: disallow 
-  start_page: component-b::index.adoc
+  start_page: get-started:overview.adoc 
 content:
   sources:
   - url: https://github.com/UWDDA/antora.git
-    branches: [second]
+    branches: [second], [development]
     start_path: docs 
 ui:
   bundle:
@@ -14,4 +14,5 @@ ui:
     snapshot: true 
 
 
-    
+   // nav 
+   // -modules/ROOT/nav.adoc
