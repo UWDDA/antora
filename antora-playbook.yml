@@ -2,14 +2,15 @@ name: name-of-component
 title: Title of page
 
 site:
-  title: Antora Demo Site
+  title: Site
   url: http://54.158.188.118
   robots: disallow 
   start_page: ROOT:overview.adoc 
 content:
   sources:
   - url: https://github.com/UWDDA/antora.git
-    branches: [second], [development], [HP_website_030921]
+    branches: [HP_website_03092021]
+    tags: v*
     start_path: docs 
 ui:
   bundle:
@@ -17,3 +18,6 @@ ui:
     snapshot: true 
 nav: 
   - modules/ROOT/nav.adoc 
+  runtime: 
+    cache_dir: ./.cache/antora 
+    fetch: true 
