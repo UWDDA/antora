@@ -1,1 +1,1 @@
-test
+xref:index.adoc
