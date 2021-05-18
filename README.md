@@ -1,12 +1,10 @@
-# antora
+  # Antora
 
 Installing Antora
 
-This is a baseline setup for the antora package
+This is a baseline setup for the antora package.
 
-![antora logo](./img/antora.jpg)
-![ubuntu logo](./img/ubuntu.jpg)
-
+<img src="./img/antora2.jpg" width="100" height="100"/> <img src="./img/ubuntu.jpg" width="175" height="100"/>
 
 CONTENTS OF THIS FILE
 ---------------------
@@ -31,6 +29,7 @@ For more information on the topic specifically, you may visit
 DEV DEPENDENCIES
 --------------
 * Node.js v8.10.0
+* Apache2 Web Server
 
 REQUIREMENTS
 ------------
@@ -48,6 +47,7 @@ $ sudo apt install nodejs
 $ sudo apt install npm
 
 * Download NVM Install Script
+
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ​
 * Set NVM Environment Variables
@@ -56,6 +56,7 @@ $ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 ​
 * Install Node LTS
+
 $ nvm install --lts
 
 * Once installed, run the command below to confirm that Node is installed. There will be a version number displayed once the command is complete. 
@@ -67,8 +68,13 @@ $ nodejs -v
 $ npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
 ​
 * Run this command to get the version and latest patching number.There will be a version number displayed once the command is complete. 
-* 
+
 $ antora -v
+
+* Install the Apache2 Web Server.
+
+$ sudo apt-get install apache2
+
 
 
 
