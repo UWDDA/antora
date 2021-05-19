@@ -1,8 +1,8 @@
-name: name-of-component
+name: My Site
 title: Title of page
 
 site:
-  title: Site
+  title: Here is the title!
   url: http://54.158.188.118
   robots: disallow 
   start_page: ROOT:overview.adoc 
@@ -16,8 +16,6 @@ ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true 
-nav: 
-  - modules/ROOT/nav.adoc 
 runtime: 
     cache_dir: ./.cache/antora 
     fetch: true 
