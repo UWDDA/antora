@@ -6,7 +6,6 @@ site:
 content:
   sources:
   - url: https://github.com/UWDDA/antora.git
-    start_path: docs 
     branches: [HP_website_03092021]
     
 ui:
