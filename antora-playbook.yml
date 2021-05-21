@@ -2,13 +2,12 @@ site:
   title: Here is the title!
   url: http://54.236.229.254
   robots: disallow 
-  start_page: ROOT:overview.adoc 
+  start_page: component-b::index.adoc
 content:
   sources:
-  - url: https://gitlab.com/antora/demo/demo-component-b.git
-    branches: [v1.*, v2.*]
-    tags: v*
-    start_path: docs 
+  - url: https://github.com/UWDDA/antora.git
+    branches: [HP_website_03092021]
+    start_path: docs
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
