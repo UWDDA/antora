@@ -5,7 +5,7 @@ site:
   start_page: ROOT:overview.adoc 
 content:
   sources:
-  - url: https://github.com/UWDDA/antora.git
+  - url: https://github.com/UWDDA/antora/tree/HP_website_03092021
     branches: [HP_website_03092021]
     tags: v*
     start_path: docs 
