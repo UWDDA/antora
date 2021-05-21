@@ -1,6 +1,6 @@
 site:
   title: Here is the title!
-  url: http://54.158.188.118
+  url: http://54.236.229.254
   robots: disallow 
   start_page: ROOT:overview.adoc 
 content:
