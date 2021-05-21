@@ -5,8 +5,8 @@ site:
   start_page: ROOT:overview.adoc 
 content:
   sources:
-  - url: https://github.com/UWDDA/antora.git
-    branches: [HP_website_03092021]
+  - url: https://gitlab.com/antora/demo/demo-component-b.git
+    branches: [v1.*, v2.*]
     tags: v*
     start_path: docs 
 ui:
