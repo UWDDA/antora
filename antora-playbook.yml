@@ -1,5 +1,5 @@
 site:
-  title: Here is the title!
+  title: My Antora Website 
   url: http://54.236.229.254
   robots: disallow 
   start_page: component-b::index.adoc
