@@ -1,4 +1,9 @@
-= Welcome to Component B!
+= This is my Antora Website. 
+
+=Welcome!
+
+yeet 
+
 
 This is the automatic start page for version *{page-component-version}* of Component B.
 
