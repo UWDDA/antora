@@ -2,7 +2,7 @@ site:
   title: My Antora Website 
   url: http://54.236.229.254
   robots: disallow 
-  start_page: docs::index.adoc
+  start_page: component-b::index.adoc
 content:
   sources:
   - url: https://github.com/UWDDA/antora.git
