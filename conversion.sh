@@ -1,6 +1,6 @@
 #!/bin/bash
-CONVERSION: 
------
+#CONVERSION: 
+#-----
 
 # Copy file over from local directory
 
@@ -22,20 +22,20 @@ pdf2txt -t html file.pdf > file.html
 rm file.html
 cat file.adoc 
 
-DEV DEPENDENCIES:
-----------------
+#DEV DEPENDENCIES:
+#----------------
 
-* asciidoctor
+#* asciidoctor
 
-* pandoc
+#* pandoc
 
-* python3.8
+#* python3.8
 
-* python3.pip
+#* python3.pip
 
-* pdf2txt
+#* pdf2txt
 
-* python3-pdfminer 
+#* python3-pdfminer 
 
 
 
