@@ -62,4 +62,4 @@ for pdf in os.listdir(path_to_pdf):
     adoc.close()
     pdfOutput.close()
     subprocess.call(['rm', pdfName+'.output'])
-print(str(passed) + ' out of ' + str(total))
+print(str(passed) + ' out of ' + str(total) + ' files passed')
