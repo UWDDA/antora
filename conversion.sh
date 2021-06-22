@@ -3,10 +3,19 @@
 #-----
 
 # AsciiDoc conversion
-pdf2txt -t html file.pdf | pandoc -f html -t asciidoc > file.adoc
+cd conversions/pdfs/
+for FILE in *
+do
+	pdf2txt -t html $FILE | pandoc -f html -t asciidoc > ../adocs/$FILE.adoc
+	#confirm converion
+	head ../adocs/$FILE.adoc
+done
+echo ""
+echo "CHECKING CONVERSION INTEGRITY"
+echo ""
 
-# confirm converionl
-cat file.adoc 
+cd ../../tests/
+./isconverted.sh
 
 #DEV DEPENDENCIES:
 #----------------
