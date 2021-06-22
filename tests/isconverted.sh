@@ -1,10 +1,12 @@
 #!/bin/bash
 declare -i total=0
 declare -i converted=0
-for FILE in ../conversions/pdfs/*
+cd ../conversions/pdfs/
+for FILE in *
 do
 	total=$((total + 1))
-	if [[ -f ../conversions/adocs/FILE ]]
+	echo $FILE
+	if [[ -f ../adocs/$FILE.adoc ]]
 	then
 		echo "PDF converted"
 		converted=$((converted + 1))
