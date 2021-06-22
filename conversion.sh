@@ -11,18 +11,13 @@ cat file.adoc
 #DEV DEPENDENCIES:
 #----------------
 
-#* asciidoctor
-
-#* pandoc
+#* Pandoc
 
 #* python3.8
 
-#* python3.pip
+#* pip3
 
 #* pdf2txt
-
-#* python3-pdfminer 
-
 
 
 
