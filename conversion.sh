@@ -11,11 +11,14 @@ do
 	head ../adocs/$FILE.adoc
 done
 echo ""
-echo "CHECKING CONVERSION INTEGRITY"
+echo "***RUNNING TESTS***"
 echo ""
-
 cd ../../tests/
+echo "TESTING CONVERSIONS"
 ./isconverted.sh
+echo""
+echo "TESTING TEXT INTEGRITY"
+./isTextSame.py
 
 #DEV DEPENDENCIES:
 #----------------
