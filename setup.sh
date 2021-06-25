@@ -13,9 +13,9 @@ nvm install --lts
 
 nodejs -v 
 
-npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
+sudo npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
 
-npm i -g http-server 
+sudo npm i -g http-server 
 
 antora -v
 
