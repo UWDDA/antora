@@ -11,6 +11,8 @@ sudo rm -rf /var/www/html/*
 
 sudo npm uninstall -g @antora/site-generator-default
 
+npm cache clean --force
+
 sudo apt remove nodejs
 
 sudo apt-get remove nodejs
