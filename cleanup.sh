@@ -2,7 +2,7 @@
 
 cd ~
 
-rm -rf * 
+rm -rf antora/ 
 
 sudo rm -rf /var/www/html/*
 
