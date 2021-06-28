@@ -23,6 +23,8 @@ nvm current
 
 nvm uninstall node_versiona
 
+sudo wipe -r antora
+
 sudo apt-get remove poppler-utils
 
 sudo apt autoremove
