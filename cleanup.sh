@@ -15,7 +15,7 @@ sudo npm uninstall -g http-server
 
 npm cache clean --force
 
-sudo apt-get uninstall npm
+sudo apt-get remove npm
 sudo apt autoremove
 
 sudo apt-get remove nodejs
@@ -35,13 +35,9 @@ sudo apt autoremove
 sudo apt-get remove pandoc
 sudo apt autoremove
 
-sudo apt-get remove python3.8
-sudo apt autoremove
-
 sudo apt-get python3-pdfminer
 sudo apt autoremove
 
 cd ~
-sudo rm -rf .nvm/
 sudo rm -rf /usr/local/lib/node_modules/@antora/
-sudo rm -f /user/local/bin/antora
+sudo rm -f /usr/local/bin/antora
