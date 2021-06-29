@@ -11,26 +11,25 @@ sudo rm -rf /var/www/html/*
 
 sudo npm uninstall -g @antora/site-generator-default
 
+sudo npm uninstall -g http-server
+
 npm cache clean --force
 
-sudo apt remove nodejs
+sudo apt-get uninstall npm
+sudo apt autoremove
 
 sudo apt-get remove nodejs
-
 sudo apt autoremove
 
 nvm current
-
 nvm uninstall node_versiona
 
 sudo wipe -r antora
 
 sudo apt-get remove poppler-utils
-
 sudo apt autoremove
 
 sudo apt-get remove apache2
-
 sudo apt autoremove
 
 sudo apt-get remove pandoc
