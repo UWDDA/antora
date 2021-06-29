@@ -1,0 +1,38 @@
+[#1]#Page 1#
+
+Internship Project Description +
+ +
+What is Antora? +
+Antora is self-described as: The multi-repository documentation site
+generator for tech writers +
+who love writing in AsciiDoc. ... Based around the AsciiDoc format, a
+format far more akin to +
+Markdown. Its syntax is readable, concise, comprehensive, extensible,
+and, above all, easy to +
+learn. +
+ +
+A. Install Antora without Docker +
+https://docs.antora.org/antora/2.3/install-and-run-quickstart/ +
+ +
+1. How to install Node.js. +
+2. How to install the Antora. +
+3. How to create your first Antora playbook. +
+4. How to run Antora and generate a site using a playbook. +
+ +
+B. Install Antora with Docker +
+https://gitlab.com/antora/docker-antora +
+https://gitlab.com/antora/demo/docs-site +
+ +
+1. How to Install Docker +
+2. How to Launch a Docker Container +
+3. How to Configure a Docker Container +
+4. Deploy Antora web application using a pre-configured docker image
+with Antora. +
+ +
+Deliverables: +
+Each result of the options will result in the accessibility of the
+Antora web application via IP +
+address at minimum. +
+ +
+
+Page: link:#1[1]
