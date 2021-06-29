@@ -42,5 +42,5 @@ sudo apt autoremove
 sudo apt-get python3-pdfminer
 sudo apt autoremove
 
-sudo rm -rf ./usr/local/lib/node_modules/@antora/
-sudo rm -f ./user/local/bin/antora
+sudo rm -rf /usr/local/lib/node_modules/@antora/
+sudo rm -f /user/local/bin/antora
