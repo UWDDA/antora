@@ -4,9 +4,6 @@
 # install pandoc
 sudo apt-get install pandoc
 
-# install python3.8
-sudo apt install python3.8
-
 #pip3 install pdfminer
 sudo apt install python3-pdfminer
 
