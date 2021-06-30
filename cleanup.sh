@@ -21,7 +21,7 @@ sudo apt-get remove nodejs
 sudo apt autoremove
 
 nvm current
-nvm uninstall node_versiona
+nvm uninstall node_versions
 
 sudo apt-get remove poppler-utils
 sudo apt autoremove
