@@ -1,3 +1,4 @@
+#!/bin/bash
 #remove directory
 
 cd ~
