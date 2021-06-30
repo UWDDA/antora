@@ -35,7 +35,7 @@ sudo apt autoremove
 sudo apt-get remove pandoc
 sudo apt autoremove
 
-sudo apt-get remove eython3-pdfminer
+sudo apt-get remove python3-pdfminer
 sudo apt autoremove
 
 cd ~
