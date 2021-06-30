@@ -5,9 +5,8 @@ cd ~
 rm -rf antora/ 
 
 sudo rm -rf /var/www/html/*
-
-#@todo -uninstallation of dependencies 
-#nodejs, npm, nvm, antora cli, antora site generator, http server, apache2, popler-utils, pandoc, python3.8, python-pdfminer 
+ 
+#nodejs, npm, nvm, antora cli, antora site generator, http server, apache2, popler-utils, pandoc, python-pdfminer 
 
 sudo npm uninstall -g @antora/site-generator-default
 
