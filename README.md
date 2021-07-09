@@ -46,14 +46,17 @@ INSTALLATION
 ------------
 
 * To install Antora and Apache2 and their dependencies, run the script setup.sh
+
 $ ./setup.sh
 
 * To install dependencies for conversion.sh, run conversionSetup.sh
+
 $ ./conversionSetup.sh
 
 UNINSTALLATION
 --------------
 * To uninstall all packages and their dependencies associated with this project, run cleanup.sh
+
 $ ./cleanup.sh
 
 CONFIGURATION
