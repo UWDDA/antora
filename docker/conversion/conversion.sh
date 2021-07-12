@@ -1,7 +1,8 @@
 #!/bin/bash
 #CONVERSION: 
 #-----
-
+echo "Attempting to convert"
+cd data
 # AsciiDoc conversion
 pdf2txt -t html file.pdf | pandoc -f html -t asciidoc > file.adoc
 
