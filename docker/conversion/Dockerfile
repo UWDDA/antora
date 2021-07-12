@@ -7,6 +7,8 @@ RUN apt-get update && \
         poppler-utils \
 	python3-pdfminer \
 	&& rm -rf /var/lib/apt/lists/*
-WORKDIR /home/ubuntu/
-COPY ./conversion.sh .
-CMD ["/home/ubuntu/conversion.sh"]
+WORKDIR /conversion
+COPY ./conversion.sh ./
+RUN chmod +x conversion.sh
+RUN mkdir data
+CMD ["./conversion.sh"]
