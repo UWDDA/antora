@@ -14,3 +14,5 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | b
 RUN npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
 RUN npm i -g http-server
 COPY ./antora-playbook.yml .
+COPY ./bootscript.sh . 
+CMD ["./bootscript.sh"]
