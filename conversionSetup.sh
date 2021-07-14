@@ -2,10 +2,10 @@
 #Installs all necessary apps to convert pdf to adoc
 
 # install pandoc
-apt-get install pandoc
+apt -y install pandoc
 
 #pip3 install pdfminer
-apt install python3-pdfminer
+apt -y install python3-pdfminer
 
 #install poppler utils
-apt-get install poppler-utils
+apt -y install poppler-utils
