@@ -5,11 +5,11 @@ RUN apt-get install awscli -y
 RUN mkdir -p ~/conversion
 WORKDIR ~/conversion
 RUN mkdir -p ~/.ssh/
-COPY github-deploy ./
+COPY intern-deploy ./
 RUN ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
 RUN rm -rf ~/.ssh/config
-RUN chmod 400 /~/conversion/github-deploy
-RUN echo "IdentityFile /~/conversion/github-deploy" > ~/.ssh/config
+RUN chmod 400 /~/conversion/intern-deploy
+RUN echo "IdentityFile /~/conversion/intern-deploy" > ~/.ssh/config
 RUN rm -rf antora
 RUN git clone git@github.com:UWDDA/antora.git
 WORKDIR antora
