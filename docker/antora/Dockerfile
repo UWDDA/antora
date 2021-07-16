@@ -18,4 +18,4 @@ RUN mv bootscript.sh ..
 RUN mv antora-playbook.yml ..
 WORKDIR /~/antora
 RUN rm -rf antora
-CMD bootscript.sh
+CMD ["/~/antora/bootscript.sh"]
