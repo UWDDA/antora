@@ -1,9 +1,9 @@
 #!/bin/bash
 apt update
 
-apt install nodejs
+apt install nodejs -y
 
-apt install npm
+apt install npm -y
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
@@ -20,7 +20,7 @@ npm i -g http-server
 
 antora -v
 
-apt-get install apache2
+apt-get install apache2 -y
 
 cd ~
 
