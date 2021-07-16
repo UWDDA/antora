@@ -21,15 +21,3 @@ npm i -g http-server
 antora -v
 
 apt-get install apache2 -y
-
-cd ~
-
-rm -rf antora 
-
-git clone https://github.com/UWDDA/antora.git 
-
-cd antora 
-
-chmod +x bootscript.sh 
-
-./bootscript.sh 
