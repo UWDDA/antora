@@ -1,0 +1,18 @@
+FROM ubuntu:20.04
+ENV DEBIAN_FRONTEND noninteractive
+#install software + remove cache
+WORKDIR /home/ubuntu/conversion
+COPY server1 .
+RUN apt-get update && \
+	apt-get install -y \
+	pandoc \
+        poppler-utils \
+	python3-pdfminer \
+	git \
+	ssh \
+	&& rm -rf /var/lib/apt/lists/*
+RUN ssh-agent $(ssh-add server1; git clone git@github.com:UWDDA/antora.git)
+#COPY ./conversion.sh ./
+#RUN chmod +x conversion.sh
+RUN mkdir data
+CMD ["./conversion.sh"]
