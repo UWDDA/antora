@@ -13,7 +13,7 @@ RUN echo "IdentityFile /~/antora/github-deploy" > ~/.ssh/config
 RUN rm -rf antora
 RUN git clone git@github.com:UWDDA/antora.git
 WORKDIR antora
-RUN git checkout development && chmod +x setup.sh && ./setup.sh
+RUN git checkout km_docker && chmod +x setup.sh && ./setup.sh
 RUN mv bootscript.sh ..
 RUN mv antora-playbook.yml ..
 WORKDIR /~/antora
