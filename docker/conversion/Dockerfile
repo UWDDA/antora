@@ -12,7 +12,10 @@ RUN chmod 400 /~/conversion/github-deploy
 RUN echo "IdentityFile /~/conversion/github-deploy" > ~/.ssh/config
 RUN rm -rf antora
 RUN git clone git@github.com:UWDDA/antora.git
-WORKDIR antora/
+WORKDIR antora
 RUN git checkout km_conversionSetupUpdate && chmod +x conversionSetup.sh && ./conversionSetup.sh
+RUN mv conversion.sh ..
+WORKDIR /~/conversion
+RUN mkdir data
 RUN chmod +x conversion.sh
-CMD git checkout km_conversionSetupUpdate && /~/conversion/antora/conversion.sh
+CMD /~/conversion/conversion.sh
