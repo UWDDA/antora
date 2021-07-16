@@ -17,5 +17,6 @@ RUN git checkout km_conversionSetupUpdate && chmod +x conversionSetup.sh && ./co
 RUN mv conversion.sh ..
 WORKDIR /~/conversion
 RUN mkdir data
+RUn rm -rf antora
 RUN chmod +x conversion.sh
 CMD /~/conversion/conversion.sh
