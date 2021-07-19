@@ -7,7 +7,7 @@ cd conversions/pdfs/
 for FILE in *
 do
 	pdf2txt -t html $FILE | pandoc -f html -t asciidoc > ../adocs/$FILE.adoc
-	#confirm converion
+	#confirm conversion
 	head ../adocs/$FILE.adoc
 done
 echo ""
