@@ -15,25 +15,7 @@ sudo npm uninstall -g http-server
 
 npm cache clean --force
 
-sudo apt-get remove npm
-sudo apt autoremove
-
-sudo apt-get remove nodejs
-sudo apt autoremove
-
-nvm current
-nvm uninstall node_versions
-
-sudo apt-get remove poppler-utils
-sudo apt autoremove
-
-sudo apt-get remove apache2
-sudo apt autoremove
-
-sudo apt-get remove pandoc
-sudo apt autoremove
-
-sudo apt-get remove python3-pdfminer
+sudo apt-get remove npm nodejs poppler-utils apache2 pandoc python3-pdfminer
 sudo apt autoremove
 
 cd ~
