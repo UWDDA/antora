@@ -5,61 +5,61 @@ import subprocess
 import os
 
 #pathname variables
-path_to_pdf = '../conversions/pdfs/'
-path_to_adoc = '../conversions/adocs/'
+PATH_TO_PDF = '../conversions/pdfs/'
+PATH_TO_ADOC = '../conversions/adocs/'
 total = 0
 passed = 0
 
-def formatAdocTxt(adocTxt):
+def format_adoc_txt(self):
     #get rid of + in asciidoc
-    adocTxt = adocTxt.replace('+', '')
+    self = self.replace('+', '')
     #split string into each line
-    adocLines = adocTxt.split('\n')
-    adocTxt = ''
+    adoc_lines = self.split('\n')
+    self = ''
     #add lines back together removing weird ones
-    for line in adocLines:
+    for line in adoc_lines:
         if not line.startswith('[#'):
             if not line.startswith('Page: link:#'):
-                adocTxt += line
+                self += line
     #Remove line breaks
-    adocTxt = adocTxt.replace('\n', '')
+    self = self.replace('\n', '')
     #remove spaces
-    adocTxt = adocTxt.replace(' ', '')
-    return adocTxt
+    self = self.replace(' ', '')
+    return self
 
-def formatPdfTxt(pdfTxt):
+def format_pdf_txt(self):
     #remove line breaks
-    pdfTxt = pdfTxt.replace('\n', '')
-    pdfTxt = pdfTxt.replace(' ', '')
-    return pdfTxt
+    self = self.replace('\n', '')
+    self = self.replace(' ', '')
+    return self
 
-for pdf in os.listdir(path_to_pdf):
+for pdf in os.listdir(PATH_TO_PDF):
     #set pdf file name variable
-    pdfName = os.fsdecode(pdf)
+    pdf_name = os.fsdecode(pdf)
     #make sure current or previous directory isn't selected
-    if pdfName == '.' or pdfName == '..':
+    if pdf_name == '.' or pdf_name == '..':
         continue
     total += 1
     #call pdftotext command in bash
-    subprocess.call(['pdftotext', path_to_pdf + pdfName, pdfName + '.output'])
+    subprocess.call(['pdftotext', PATH_TO_PDF + pdf_name, pdf_name + '.output'])
     #grab output file
-    pdfOutput = open(pdfName + '.output', 'r')
-    pdfTxt = pdfOutput.read()
+    pdf_output = open(pdf_name + '.output', 'r')
+    pdf_txt = pdf_output.read()
     #format pdf text
-    pdfTxt = formatPdfTxt(pdfTxt)
+    pdf_txt = format_pdf_txt(pdf_txt)
     #grab asciidoc
-    adoc = open(path_to_adoc + pdfName + '.adoc', 'r')
+    adoc = open(PATH_TO_ADOC + pdf_name + '.adoc', 'r')
     #grab text
-    adocTxt = adoc.read()
+    adoc_txt = adoc.read()
     #format
-    adocTxt = formatAdocTxt(adocTxt)
+    adoc_txt = format_adoc_txt(adoc_txt)
     #Perform the test
-    if adocTxt  in pdfTxt:
-        print(pdfName + " Passed")
+    if adoc_txt  in pdf_txt:
+        print(pdf_name + " Passed")
         passed += 1
     else:
-        print(pdfName + " Failed")
+        print(pdf_name + " Failed")
     adoc.close()
-    pdfOutput.close()
-    subprocess.call(['rm', pdfName+'.output'])
+    pdf_output.close()
+    subprocess.call(['rm', pdf_name+'.output'])
 print(str(passed) + ' out of ' + str(total) + ' files passed')
