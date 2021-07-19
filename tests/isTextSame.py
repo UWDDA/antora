@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 #---Dependencies---
-#sudo apt install poppler util
+#poppler-utils
 import subprocess
 import os
 
