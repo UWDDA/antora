@@ -62,7 +62,9 @@ $ ./cleanup.sh
 CONFIGURATION
 -------------
 
-* To convert a PDF to AsciiDoc, place a file in the root folder and name it "file.pdf" then run the conversion script.
+* To convert a PDF to AsciiDoc, place a file in the root folder and name it "file.pdf" then run the "conversion.sh" script.
+
+$./conversion.sh
 
 MAINTAINERS
 -----------
