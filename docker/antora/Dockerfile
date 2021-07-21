@@ -14,8 +14,10 @@ RUN rm -rf antora
 RUN git clone git@github.com:UWDDA/antora.git
 WORKDIR antora
 RUN git checkout km_docker && chmod +x setup.sh && ./setup.sh
+RUN cp -r /root/.npm /home/ubuntu/
 RUN mv bootscript.sh ..
 RUN mv antora-playbook.yml ..
 WORKDIR /home/ubuntu/antora
 RUN rm -rf antora
+RUN chmod +x bootscript.sh
 CMD ["/home/ubuntu/antora/bootscript.sh"]
