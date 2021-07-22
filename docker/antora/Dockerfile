@@ -18,5 +18,6 @@ RUN mv bootscript.sh ..
 RUN mv antora-playbook.yml ..
 WORKDIR /home/ubuntu/antora
 RUN rm -rf antora
+RUN mkdir /home/ubuntu/website
 RUN chmod +x bootscript.sh
 CMD ["/home/ubuntu/antora/bootscript.sh"]
