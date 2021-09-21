@@ -10,28 +10,28 @@ PATH_TO_ADOC = '../conversions/adocs/'
 total = 0
 passed = 0
 
-def format_adoc_txt(self):
+def format_adoc_txt(adoctxt):
     #get rid of + in asciidoc
-    self = self.replace('+', '')
+    adoctxt = adoctxt.replace('+', '')
     #split string into each line
-    adoc_lines = self.split('\n')
-    self = ''
+    adoc_lines = adoctxt.split('\n')
+    adoctxt = ''
     #add lines back together removing weird ones
     for line in adoc_lines:
         if not line.startswith('[#'):
             if not line.startswith('Page: link:#'):
-                self += line
+                adoctxt += line
     #Remove line breaks
-    self = self.replace('\n', '')
+    adoctxt = adoctxt.replace('\n', '')
     #remove spaces
-    self = self.replace(' ', '')
-    return self
+    adoctxt = adoctxt.replace(' ', '')
+    return adoctxt
 
-def format_pdf_txt(self):
+def format_pdf_txt(pdftxt):
     #remove line breaks
-    self = self.replace('\n', '')
-    self = self.replace(' ', '')
-    return self
+    pdftxt = pdftxt.replace('\n', '')
+    pdftxt = pdftxt.replace(' ', '')
+    return pdftxt
 
 for pdf in os.listdir(PATH_TO_PDF):
     #set pdf file name variable
@@ -41,7 +41,7 @@ for pdf in os.listdir(PATH_TO_PDF):
         continue
     total += 1
     #call pdftotext command in bash
-    subprocess.call(['pdftotext', PATH_TO_PDF + pdf_name, pdf_name + '.output'])
+    subprocess.run(['pdftotext', PATH_TO_PDF + pdf_name, pdf_name + '.output'])
     #grab output file
     pdf_output = open(pdf_name + '.output', 'r')
     pdf_txt = pdf_output.read()
@@ -61,5 +61,5 @@ for pdf in os.listdir(PATH_TO_PDF):
         print(pdf_name + " Failed")
     adoc.close()
     pdf_output.close()
-    subprocess.call(['rm', pdf_name+'.output'])
+    subprocess.run(['rm', pdf_name+'.output'])
 print(str(passed) + ' out of ' + str(total) + ' files passed')
