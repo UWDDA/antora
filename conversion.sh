@@ -16,7 +16,7 @@ echo ""
 cd ../../tests/
 echo "TESTING CONVERSIONS"
 ./isconverted.sh
-echo""
+echo ""
 echo "TESTING TEXT INTEGRITY"
 ./isTextSame.py
 
