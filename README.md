@@ -17,7 +17,7 @@ CONTENTS OF THIS FILE
  * Maintainers
 
 
- INTRODUCTION
+INTRODUCTION
 ------------
 
 * OS being utilized: Ubuntu 18.04 
@@ -67,6 +67,12 @@ CONFIGURATION
 $./conversion.sh
 
 MAINTAINERS
+-----------
+
+* Kelvin Spencer
+* Kyle Mercer 
+
+CONTRIBUTORS
 -----------
 
 * Hannah Pinson
