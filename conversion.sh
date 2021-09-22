@@ -3,10 +3,22 @@
 #-----
 
 # AsciiDoc conversion
-pdf2txt -t html file.pdf | pandoc -f html -t asciidoc > file.adoc
-
-# confirm converionl
-cat file.adoc 
+cd conversions/pdfs/
+for FILE in *
+do
+	pdf2txt -t html $FILE | pandoc -f html -t asciidoc > ../adocs/$FILE.adoc
+	#confirm conversion
+	head ../adocs/$FILE.adoc
+done
+echo ""
+echo "***RUNNING TESTS***"
+echo ""
+cd ../../tests/
+echo "TESTING CONVERSIONS"
+./isconverted.sh
+echo ""
+echo "TESTING TEXT INTEGRITY"
+./isTextSame.py
 
 #DEV DEPENDENCIES:
 #----------------

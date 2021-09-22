@@ -1,47 +1,65 @@
 #!/usr/bin/python3
 #---Dependencies---
-#sudo apt install poppler util
-
+#poppler-utils
 import subprocess
+import os
 
-#Run pdftotext command in linux bash
-subprocess.call(['pdftotext', '../file.pdf', 'output'])
+#pathname variables
+PATH_TO_PDF = '../conversions/pdfs/'
+PATH_TO_ADOC = '../conversions/adocs/'
+total = 0
+passed = 0
 
-#grab asciidoc
-adoc = open('../file.adoc', 'r')
-adocTxt = adoc.read()
+def format_adoc_txt(adoctxt):
+    #get rid of + in asciidoc
+    adoctxt = adoctxt.replace('+', '')
+    #split string into each line
+    adoc_lines = adoctxt.split('\n')
+    adoctxt = ''
+    #add lines back together removing weird ones
+    for line in adoc_lines:
+        if not line.startswith('[#'):
+            if not line.startswith('Page: link:#'):
+                adoctxt += line
+    #Remove line breaks
+    adoctxt = adoctxt.replace('\n', '')
+    #remove spaces
+    adoctxt = adoctxt.replace(' ', '')
+    return adoctxt
 
-#get rid of + in asciidoc
-adocTxt = adocTxt.replace('+', '')
-#split string into each line
-adocLines = adocTxt.split('\n')
-    
-adocTxt = ''
-#add lines back together removing weird ones
-for line in adocLines:
-    if not line.startswith('[#'):
-        if not line.startswith('Page: link:#'):
-            adocTxt += line
-#Remove line breaks
-adocTxt = adocTxt.replace('\n', '')
-#remove spaces
-adocTxt = adocTxt.replace(' ', '')
+def format_pdf_txt(pdftxt):
+    #remove line breaks
+    pdftxt = pdftxt.replace('\n', '')
+    pdftxt = pdftxt.replace(' ', '')
+    return pdftxt
 
-#grab output file
-pdfOutput = open('output', 'r')
-pdfTxt = pdfOutput.read()
-
-#remove line breaks
-pdfTxt = pdfTxt.replace('\n', '')
-pdfTxt = pdfTxt.replace(' ', '')
-
-if adocTxt  in pdfTxt:
-    print("Pass")
-else:
-    print("Fail")
-    diff = set(char for char in adocTxt) - set(char for char in pdfTxt)
-    print('Differing characters: ' + diff)
-
-adoc.close()
-pdfOutput.close()
-subprocess.call(['rm', 'output'])
+for pdf in os.listdir(PATH_TO_PDF):
+    #set pdf file name variable
+    pdf_name = os.fsdecode(pdf)
+    #make sure current or previous directory isn't selected
+    if pdf_name == '.' or pdf_name == '..':
+        continue
+    total += 1
+    #call pdftotext command in bash
+    subprocess.run(['pdftotext', PATH_TO_PDF + pdf_name, pdf_name + '.output'])
+    #grab output file
+    pdf_output = open(pdf_name + '.output', 'r')
+    pdf_txt = pdf_output.read()
+    #format pdf text
+    pdf_txt = format_pdf_txt(pdf_txt)
+    #grab asciidoc
+    adoc = open(PATH_TO_ADOC + pdf_name + '.adoc', 'r')
+    #grab text
+    adoc_txt = adoc.read()
+    #format
+    adoc_txt = format_adoc_txt(adoc_txt)
+    #Perform the test
+    if adoc_txt  in pdf_txt:
+        print(pdf_name + " Passed")
+        passed += 1
+    else:
+        print(pdf_name + " Failed")
+    adoc.close()
+    pdf_output.close()
+    subprocess.run(['rm', pdf_name+'.output'])
+print(str(passed) + ' out of ' + str(total) + ' files passed')
