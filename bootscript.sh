@@ -1,2 +1,3 @@
+#!/bin/bash
 antora antora-playbook.yml
-sudo cp -rp build/site/* /var/www/html/
+cp -rp build/site/* /home/ubuntu/website/
