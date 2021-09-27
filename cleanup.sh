@@ -1,25 +1,24 @@
+#!/bin/bash
 #remove directory
 
 cd ~
 
-rm -rf antora 
+rm -rf antora/ 
 
 sudo rm -rf /var/www/html/*
+ 
+#nodejs, npm, nvm, antora cli, antora site generator, http server, apache2, popler-utils, pandoc, python-pdfminer 
 
-#@todo -uninstallation of dependencies 
-#nodejs, npm, nvm, antora cli, antora site generator, http server, apache2 
+sudo npm uninstall -g @antora/site-generator-default
 
+sudo npm uninstall -g http-server
 
-sudo apt remove nodejs
+npm cache clean --force
 
-sudo apt purge nodejs
-
+sudo apt-get remove npm nodejs poppler-utils apache2 pandoc python3-pdfminer
 sudo apt autoremove
 
-nvm current
-
-nvm uninstall node_version
-
-sudo wipe -r antora
-
-sudo apt-get remove apache2
+cd ~
+sudo rm -rf .nvm/
+sudo rm -rf /usr/local/lib/node_modules/@antora/
+sudo rm -f /usr/local/bin/antora

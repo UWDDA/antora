@@ -1,0 +1,117 @@
+[#1]#Page 1#
+
+MDM +
+
+System Name +
+
+VMWare Mobile Device Management +
+
+System Description +
+
+AirWatch, a division of virtualization vendor +
+, provides technologies that help IT administrators +
+deploy, secure and manage mobile devices, applications and data, as well
+as Windows 10 and Apple +
+Mac computers. +
+
+VMware +
+
+SME +
+
+Service +
+
+Version +
+
+Version date +
+
+On this page +
+
+@ W Ford Dunn @ Edward.rule +
+
+Mobile Device Management +
+
+Architecture +
+Deployment Procedure +
+Application monitoring +
+Known errors +
+Troubleshooting +
+Resources +
+
+Pro-Services/Vendor +
+
+VMWare +
+
+Architecture +
+
+This is the location where you attach or link files that describe the
+following: +
+Network Flow Maps, ports, paths and encryption methods. +
+
+Deployment Procedure +
+
+This is the location where you attach or link documentation that
+explains how the system is deployed. If its a part of another deployment
+script +
+then explain how the parent script deploys the system including any
+dependent variables used during this specific deployment. +
+
+Application monitoring +
+
+Application +
+
+Function +
+
+1 +
+
+2 +
+
+1 +
+
+2 +
+
+3 +
+
+1 +
+
+2 +
+
+Known errors +
+
+Error +
+
+Error date +
+
+Error report +
+
+ITSM known errors template +
+
+Troubleshooting +
+
+Step instructions +
+
+Enabled +
+
+Execution location +
+
+Run environments +
+
+Run conditions +
+
+Documentation +
+
+YES / NO +
+
+[#2]#Page 2#
+
+3 +
+
+Resources +
+
+Submitted By: +
+Source: https://arma-cloud.atlassian.net/browse/STLD-194 +
+
+@ W Ford Dunn +
+
+ +
+
+Page: link:#1[1], link:#2[2]
