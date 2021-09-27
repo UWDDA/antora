@@ -1,0 +1,117 @@
+[#1]#Page 1#
+
+Lambda +
+Pros +
+
+Serverless +
+
+Scales with demand +
+
+Cons +
+
+Timeout after 900s +
+
+Lack of portability +
+
+Can be called from virtually any AWS service Requires AWS Architecture +
+
+Can run container images +
+
+Works great on short tasks +
+
+Costs +
+
+Conversion.sh +
+
+Can’t be tested locally +
+
+Limit of tens of thousands concurrent runs +
+
+Not suited for long-running tasks +
+
+Function-level offers less control +
+
+Constants: +
+Memory of 128 MB is used (minimum for AWS Lambda) +
+Assume lambda is run 10,000,000 times a month +
+The monthly compute price is $0.00001667 per GBs +
+conversion.sh takes an average of 0.52s when run with 128 MB +
+
+𝑇𝑜𝑡𝑎𝑙 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 𝑆𝑒𝑐𝑜𝑛𝑑𝑠 = 10,000,000 * 0.52𝑠 +
+𝑇𝑜𝑡𝑎𝑙 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 𝑆𝑒𝑐𝑜𝑛𝑑𝑠 =5,200,000 +
+𝑇𝑜𝑡𝑎𝑙 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 =5,200,000𝑠*(128/1024)𝐺𝐵 +
+𝑇𝑜𝑡𝑎𝑙 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 =650,000𝐺𝐵𝑠 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 𝐶𝑜𝑠𝑡 = $0.00001667 * 650,000𝐺𝐵𝑠 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 𝐶𝑜𝑠𝑡 = $10.8355 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝑅𝑒𝑞𝑢𝑒𝑠𝑡 𝐶𝑜𝑠𝑡 = 10,000,000 * ($0.20/1,000,000) +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝑅𝑒𝑞𝑢𝑒𝑠𝑡 𝐶𝑜𝑠𝑡 = $2.00 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝐶𝑜𝑠𝑡 =$2.00 + $10.8355 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝐶𝑜𝑠𝑡 = $12.8355 +
+
+Note: Does not compute for computer power included in commercial
+subscription. +
+Numbers assume we are over our maximum allowed. +
+
+[#2]#Page 2#
+
+Antora +
+Memory of 128 MB is used (minimum for AWS Lambda) +
+Assume lambda is run 10,000,000 times a month +
+The monthly compute price is $0.00001667 per GBs +
+bootscript.sh takes an average of 0.52s when run with 128 MB +
+
+𝑇𝑜𝑡𝑎𝑙 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 𝑆𝑒𝑐𝑜𝑛𝑑𝑠 = 10,000,000 * 3.787 +
+𝑇𝑜𝑡𝑎𝑙 𝑐𝑜𝑚𝑝𝑢𝑡𝑒𝑟 𝑆𝑒𝑐𝑜𝑛𝑑𝑠 = 37,870,000 +
+𝑇𝑜𝑡𝑎𝑙 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 =37,870,000𝑠*(128/1024)𝐺𝐵 +
+𝑇𝑜𝑡𝑎𝑙 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 =4,733,750𝐺𝐵𝑠 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 𝐶𝑜𝑠𝑡 = $0.00001667 * 64,733,750𝐺𝐵𝑠 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝐶𝑜𝑚𝑝𝑢𝑡𝑒 𝐶𝑜𝑠𝑡 = $1079.1116125 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝑅𝑒𝑞𝑢𝑒𝑠𝑡 𝐶𝑜𝑠𝑡 = 10,000,000 * ($0.20/1,000,000) +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝑅𝑒𝑞𝑢𝑒𝑠𝑡 𝐶𝑜𝑠𝑡 = $2.00 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝐶𝑜𝑠𝑡 =$2.00 + $1079.1116125 +
+𝑇𝑜𝑡𝑎𝑙 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 𝐶𝑜𝑠𝑡 = $1081.1116125 +
+
+[#3]#Page 3#
+
+Conversion +
+
+Pros +
+
+Scalability +
+
+Cons +
+
+Pay for uptime of EC2 instances +
+
+On-Demand scalability +
+
+Potentially costly depending on EC2 plan +
+
+Control over # of instances and tasks +
+
+Can host and upkeep services +
+
+Can run container images +
+
+Automatically scales +
+
+Easy to setup + maintain +
+
+Costs: +
+Conversion Container: +
+Memory of 128 MB is used (minimum for AWS Lambda) +
+Assume lambda is run 10,000,000 times a month +
+The hourly cost of an EC2 instance is can be between $0.02/hr to
+$0.05/hr +
+conversion.sh takes an average of 2.00s when run with 128 MB +
+
+𝑇𝑜𝑡𝑎𝑙 𝐻𝑜𝑢𝑟𝑠 𝑈𝑝𝑡𝑖𝑚𝑒 = (10,000,000 * 2.00𝑠)/3600𝑠 +
+𝑇𝑜𝑡𝑎𝑙 𝐻𝑜𝑢𝑟𝑠 𝑈𝑝𝑡𝑖𝑚𝑒 = 5555.5556ℎ𝑟 +
+𝑇𝑜𝑡𝑎𝑙 𝐶𝑜𝑠𝑡 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 = 5555.5556ℎ𝑟 * $0.02=5555.556ℎ𝑟 * $0.05 +
+𝑇𝑜𝑡𝑎𝑙 𝐶𝑜𝑠𝑡 𝑀𝑜𝑛𝑡ℎ𝑙𝑦 = $111.11112=$277.77778 +
+
+| +
+
+| +
+
+Page: link:#1[1], link:#2[2], link:#3[3]
