@@ -1,23 +1,31 @@
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt install git -y && apt install curl -y
-RUN apt-get install awscli -y
-RUN mkdir -p /home/ubuntu/antora
-WORKDIR /home/ubuntu/antora
-RUN mkdir -p /root/.ssh/
-COPY intern-deploy ./
-RUN ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
-RUN rm -rf /root/.ssh/config
-RUN chmod 400 /home/ubuntu/antora/intern-deploy
-RUN echo "IdentityFile /home/ubuntu/antora/intern-deploy" > /root/.ssh/config
-RUN rm -rf antora
-RUN git clone git@github.com:UWDDA/antora.git
-WORKDIR antora
-RUN git checkout km_docker && chmod +x setup.sh && ./setup.sh
-RUN mv bootscript.sh ..
-RUN mv antora-playbook.yml ..
-WORKDIR /home/ubuntu/antora
-RUN rm -rf antora
-RUN mkdir /home/ubuntu/website
-RUN chmod +x bootscript.sh
-CMD ["/home/ubuntu/antora/bootscript.sh"]
+ARG FUNCTION_DIR="/home/app/"
+WORKDIR $FUNCTION_DIR
+#setup scripts
+COPY setup.sh awsconfig.sh return-code.py amazon-login.sh runAntoraAws.sh ./
+RUN chmod +x setup.sh awsconfig.sh return-code.py amazon-login.sh runAntoraAws.sh
+RUN ./setup.sh && \
+	./awsconfig.sh && \
+	./amazon-login.sh
+#scripts and files for running antora
+RUN mkdir antoracfg
+WORKDIR antoracfg
+COPY antora-playbook.yml makeAntora.sh bootscript.sh ./
+RUN chmod +x bootscript.sh makeAntora.sh bootscript.sh
+#Add file structure
+RUN git config --system user.name user
+RUN git config --system user.email user@username.com
+RUN mkdir adocs
+RUN mkdir css 
+RUN mkdir -p docs/modules/ROOT/pages/
+COPY css/ui-bundle.zip ./css
+COPY docs/antora.yml docs/antora.yml
+COPY docs/modules/ROOT/nav.adoc docs/modules/ROOT/
+ADD https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest/download/aws-lambda-rie /usr/bin/aws-lambda-rie
+COPY start-lambda.sh /start-lambda.sh
+RUN chmod 755 /usr/bin/aws-lambda-rie /start-lambda.sh
+WORKDIR $FUNCTION_DIR
+#ENTRYPOINT [ "/start-lambda.sh" ]
+ENTRYPOINT [ "/usr/bin/python3", "-m", "awslambdaric" ]
+CMD [ "return-code.handler" ]
