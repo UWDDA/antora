@@ -1,1 +1,1 @@
-printf "[key]\n[private key]\n[region]\njson" | aws configure
+printf "[access key]\n[private access key]\n[region]\njson" | aws configure

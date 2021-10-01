@@ -1,10 +1,4 @@
-  # Antora
-
-Installing Antora
-
-This is a baseline setup for the antora package.
-
-<img src="./img/antora2.jpg" width="100" height="100"/> <img src="./img/ubuntu.jpg" width="175" height="100"/>
+  # PDF to HTML Site Using Antora
 
 CONTENTS OF THIS FILE
 ---------------------
@@ -20,72 +14,90 @@ CONTENTS OF THIS FILE
  INTRODUCTION
 ------------
 
-* OS being utilized: Ubuntu 18.04 
-
-* This file tells the user the necessary requirements for installing Antora on the Ubuntu system. 
-For more information on the topic specifically, you may visit 
-(URL https://docs.antora.org/antora/2.3/install/install-antora/). 
+* OS being utilized: Amazon Linux
+* Prior AWS knowledge is assumed. Please refer to AWS documentation and tutorials for AWS-specific configurations.
 
 DEV DEPENDENCIES
 --------------
 * Node.js v8.10.0
-* Apache2 Web Server
+* Pandoc
+* PDFminer
+* Poppler-utils
+* AWS CLI version 2
 
 REQUIREMENTS
 ------------
 
-* Antora requires the installation of Node.js to install and run Antora on the Ubuntu system.
-For a description of this module, visit (URL https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04)
+* Docker
+* AWS Account
 
-INSTALLATION
+SETUP
 ------------
 
-* Follow these steps below to install Node.js.
+* Follow these steps below to setup your Docker images
 
-$ sudo apt update
-$ sudo apt install nodejs
-$ sudo apt install npm
+* Install Docker
 
-* Download NVM Install Script
+$sudo apt-get install docker-ce docker-ce-cli containerd.io
 
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-​
-* Set NVM Environment Variables
+* Log into your AWS account
+* Create an access key for a user with the following credentials: 
+  * S3 Full Access
+  * Lambda Full Access
+  * ECR Full Access
+* Copy the access key and private access key somewhere safe
 
-$ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-​
-* Install Node LTS
+* Clone or download this GitHub project
+* Move to the docker/conversion/ directory
+* Open amazon-login.sh
+  * Fill in blank spaces with your access key and private access key
+  * Fill in the region you want to use
+  * Make sure you remove the brackets
+* Build the conversion image
 
-$ nvm install --lts
+$sudo docker build -t conversion .
 
-* Once installed, run the command below to confirm that Node is installed. There will be a version number displayed once the command is complete. 
+* Move to the docker/antora/ directory
+* Open amazon-login.sh
+  * Fill in blank spaces with your access key and private access key
+  * Fill in the region you want to use
+  * Make sure you remove the brackets
+* Build the antora image
 
-$ nodejs -v 
+$sudo docker build -t antora .
 
-* After this, move on with steps to install Antora along with the site generator package.
+* Push both images to Amazon ECR 
 
-$ npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
-​
-* Run this command to get the version and latest patching number.There will be a version number displayed once the command is complete. 
+* Create three directories in S3:
+  * adocs
+  * pdfs
+  * site
 
-$ antora -v
-
-* Install the Apache2 Web Server.
-
-$ sudo apt-get install apache2
-
-
-
+* Create AWS Lambda functions
+  * Select container image
+  * Provide IAM role with S3 full access to Lambda functions
 
 CONFIGURATION
 -------------
 
-* There are no specific configurations required for installing Antora itself.
+* Lambda
+  * Both Lambda functions need S3 Full Access
+
+* S3
+  * The directory site/ must be public in order for users to view the website
+  * The direcotry pdfs/ must have a trigger for the conversion lambda function upon any put action
+  * The directory adocs/ must have a trigger for the antora lambda function upon any put action
 
 
 MAINTAINERS
 -----------
 
-* Hannah Pinson
+* Kyle Mercer
 * Kelvin Spencer 
+
+CONTRIBUTORS
+-----------
+
+* Hannah Pinson
+* Kelvin Spencer
+* Kyle Mercer
