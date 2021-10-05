@@ -1,9 +1,11 @@
 #!/bin/bash
+#$1 = s3 bucket
+s3bucket=$1
 mkdir -p /tmp/pdf/
 mkdir -p /tmp/adoc/
 echo directories made
 cd /tmp/pdf
-aws s3 cp s3://[your-s3-bucket]/pdfs/ ./ --recursive
+aws s3 cp s3://$s3bucket/pdfs/ ./ --recursive
 
 # AsciiDoc conversion
 for FILE in *
@@ -13,7 +15,7 @@ do
 	echo converted $FILE
 done
 
-aws s3 cp ../adoc/ s3://[your-s3-bucket]/adocs/ --recursive
+aws s3 cp ../adoc/ s3://$s3bucket/adocs/ --recursive
 echo copied asciidocs to s3
 rm -r /tmp/pdf/
 rm -r /tmp/adoc/
