@@ -1,0 +1,5 @@
+name: test
+title: File
+version: dev
+nav: 
+- modules/ROOT/nav.adoc
