@@ -1,4 +1,10 @@
-  # PDF to HTML Site Using Antora
+  # Antora
+
+Installing Antora
+
+This is a baseline setup for the antora package.
+
+<img src="./img/antora2.jpg" width="100" height="100"/> <img src="./img/ubuntu.jpg" width="175" height="100"/>
 
 CONTENTS OF THIS FILE
 ---------------------
@@ -11,93 +17,64 @@ CONTENTS OF THIS FILE
  * Maintainers
 
 
- INTRODUCTION
+INTRODUCTION
 ------------
 
-* OS being utilized: Amazon Linux
-* Prior AWS knowledge is assumed. Please refer to AWS documentation and tutorials for AWS-specific configurations.
+* OS being utilized: Ubuntu 18.04 
+
+* This file tells the user the necessary requirements for installing Antora on the Ubuntu system. 
+For more information on the topic specifically, you may visit 
+(URL https://docs.antora.org/antora/2.3/install/install-antora/). 
 
 DEV DEPENDENCIES
---------------
+----------------
 * Node.js v8.10.0
+ * npm
+ * nvm
+* Apache2 Web Server
 * Pandoc
-* PDFminer
-* Poppler-utils
-* AWS CLI version 2
+* PDFMiner
+* Poppler Utils
 
 REQUIREMENTS
 ------------
 
-* Docker
-* AWS Account
+* Antora requires the installation of Node.js to install and run Antora on the Ubuntu system.
+For a description of this module, visit (URL https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04)
 
-SETUP
+INSTALLATION
 ------------
 
-* Follow these steps below to setup your Docker images
+* To install Antora and Apache2 and their dependencies, run the script setup.sh
 
-* Install Docker
+$ ./setup.sh
 
-$sudo apt-get install docker-ce docker-ce-cli containerd.io
+* To install dependencies for conversion.sh, run conversionSetup.sh
 
-* Log into your AWS account
-* Create an access key for a user with the following credentials: 
-  * S3 Full Access
-  * Lambda Full Access
-  * ECR Full Access
-* Copy the access key and private access key somewhere safe
+$ ./conversionSetup.sh
 
-* Clone or download this GitHub project
-* Move to the docker/conversion/ directory
-* Open amazon-login.sh
-  * Fill in blank spaces with your access key and private access key
-  * Fill in the region you want to use
-  * Make sure you remove the brackets
-* Build the conversion image
+UNINSTALLATION
+--------------
+* To uninstall all packages and their dependencies associated with this project, run cleanup.sh
 
-$sudo docker build -t conversion .
-
-* Move to the docker/antora/ directory
-* Open amazon-login.sh
-  * Fill in blank spaces with your access key and private access key
-  * Fill in the region you want to use
-  * Make sure you remove the brackets
-* Build the antora image
-
-$sudo docker build -t antora .
-
-* Push both images to Amazon ECR 
-
-* Create three directories in S3:
-  * adocs
-  * pdfs
-  * site
-
-* Create AWS Lambda functions
-  * Select container image
-  * Provide IAM role with S3 full access to Lambda functions
+$ ./cleanup.sh
 
 CONFIGURATION
 -------------
 
-* Lambda
-  * Both Lambda functions need S3 Full Access
+* To convert a PDF to AsciiDoc, place a file in the root folder and name it "file.pdf" then run the "conversion.sh" script.
 
-* S3
-  * The directory site/ must be public in order for users to view the website
-  * The direcotry pdfs/ must have a trigger for the conversion lambda function upon any put action
-  * The directory adocs/ must have a trigger for the antora lambda function upon any put action
-
+$./conversion.sh
 
 MAINTAINERS
 -----------
 
-* Kyle Mercer
-* Kelvin Spencer 
+* Kelvin Spencer
+* Kyle Mercer 
 
 CONTRIBUTORS
 -----------
 
 * Hannah Pinson
 * Kelvin Spencer
-* Kyle Mercer
+* Kyle Mercer 
