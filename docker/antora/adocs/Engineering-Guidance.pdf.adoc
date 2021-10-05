@@ -1,0 +1,90 @@
+[#1]#Page 1#
+
+Tasks +
+
+Below is an example of a process in which you can follow to achieve
+sound documentation or repeatable engineering efforts. +
+
+Task: Primary Objective: Deploy System +
+
+Subtasks: +
+
+Investigation +
+
+Acceptance: +
+
+Identifying the purpose of the system +
+Identifying documentation for the system +
+Identify the baseline requirements for the system to be operational +
+Identified the point of contact for the system +
+
+Planning: Designs & Architecture +
+
+Acceptance: +
+
+Dependencies (i.e. Lambda, EC2, S3, ElasticSearch, etc) +
+
+Are derived from: +
+
+Identify the baseline requirements +
+Identifying documentation for the system +
+Expected Deployment Environment +
+
+Overall Architecture Document +
+
+Network Data Flow Map (SV-1) +
+Process Control Flow (What triggers what) +
+
+Approval +
+
+Pseudo Tests +
+
+Acceptance: +
+
+i.e. Write tests in a pseudo format that explains what needs to be
+validated +
+
+Validate that a user can login with username and password +
+Validate that the web site loads when visiting the domain name +
+Validate that the dependencies are available to be used in
+implementation +
+Validate necessary certificates are obtained for implementation +
+Validate certificate authentication +
+Validate group membership management +
+
+Peer Review: Design Review (Approval) +
+
+Sit with peer and review the designs and architecture +
+
+Acceptance: +
+
+Approval on the Design collectively as a team or delegated approval
+peers +
+
+Implementation +
+
+Acceptance: +
+
+Make sure all pseudo tests are implemented on a technical level +
+System is functioning and operational +
+Deployment/implementation documentation created independent of the code
+written +
+
+Write Unit Tests +
+
+Write the tests in the chosen testing framework of the team that will be
+executed on every deployment +
+These are based on the pseudo tests written during the test phase +
+
+Implementation Review +
+
+This effort involves another engineer reviewing the implementation
+process to ensure that there was not anything +
+overlooked based on the documentation to deploy that you created during
+the implementation phase. +
+
+Obtain approval to deploy to a production environment +
+
+The system is publicly accessible for the users you defined +
+
+Page: link:#1[1]
