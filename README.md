@@ -51,8 +51,6 @@ $sudo apt-get install docker-ce docker-ce-cli containerd.io
 * Move to the docker/conversion/ directory
 * Open amazon-login.sh
   * Fill in blank spaces with your access key and private access key
-  * Fill in the region you want to use
-  * Make sure you remove the brackets
 * Build the conversion image
 
 $sudo docker build -t conversion .
@@ -60,8 +58,6 @@ $sudo docker build -t conversion .
 * Move to the docker/antora/ directory
 * Open amazon-login.sh
   * Fill in blank spaces with your access key and private access key
-  * Fill in the region you want to use
-  * Make sure you remove the brackets
 * Build the antora image
 
 $sudo docker build -t antora .
